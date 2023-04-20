@@ -1,25 +1,41 @@
+import time
 from .menu import Menu
 
 
 class PromptForDatas:
 
     def prompt_for_players(self, players_data):        
-        players_numbers = int(input("Tapez le nombre de joueurs :"))
-        print("Entrez l'identifiant de chaque joueur : ")
-        login_list = []
-        n=1
-        while True:
-            for nb in range(n, players_numbers+1):
-                login = input(f"N° d'identifiant du joueur {nb} : ")
-                for player in players_data:
-                    print("player login:", player["login"])
-                    print("login:", login)
-                    if player["login"] == login:
-                        login_list.append(login.upper())
-                        n+=1
-                        break
-            return login_list                  
-            print("Ce joueur n'est pas enregistré. Veuillez l'enregistrer au préalable via le menu principal ou choisir un autre joueur.")
+        try:
+            players_numbers = int(input("Tapez le nombre de joueurs :"))
+        except ValueError:
+            print("Veuillez taper un nombre.")
+            self.prompt_for_players(players_data)
+        else:
+            print("Entrez l'identifiant de chaque joueur : ")
+            login_list = []
+            n = 0
+            while n !=players_numbers:
+                login = input(f"N° d'identifiant du joueur {n+1} : ")
+                if self.check_login(players_data, login):
+                    login_list.append(login.upper())
+                    n+=1
+                else:
+                    print("Ce joueur n'est pas enregistré. Veuillez taper un autre identifiant.")
+
+            return login_list   
+
+    def check_login(self, players_data, login):
+        for player in players_data:
+            if player["login"] == login:
+                check = 1
+                break
+            else:
+                check = 0
+        if check == 1:
+            return True
+        else:
+            return False                
+            
             
     
     def prompt_for_new_players(self, players_data):
@@ -62,7 +78,6 @@ class PromptForDatas:
                 print("Le nombre de joueurs doit être supérieur au nombre de tours  (par défaut : 4 tours).")
                 tournament_data_dict["round_numbers"] = int(input("Veuillez saisir un nombre de round supérieur au nombre de joueurs inscrits : "))
                 return tournament_data_dict
-
         elif round_numbers_yes_no == "o" or round_numbers_yes_no == "O":
             tournament_data_dict["round_numbers"] = int(input("nombre de tours : "))
             while tournament_data_dict["round_numbers"] >= len(tournament_data_dict["players_list"]):
@@ -85,16 +100,24 @@ class PromptForDatas:
     def prompt_from_results(self, tournament_data, round_number, match_number):
         tournament_name = tournament_data["tournament_name"]
         menu = Menu()
-        menu.clean()
+        
         round_name = "round_"+str(round_number)+"_results" 
-        print(f"Match n°{match_number} du round{round_number} :")
-        print()
-        print ("Joueur n°1 :", tournament_data[round_name][match_number][0][0])
-        print ("VS")
-        print ("Joueur n°2 :", tournament_data[round_name][match_number][1][0])
-        result = int(input("Taper le numéro du gagnant ou 0 en cas de match nul : "))
-        if result == 0:
-            return None
-        else:
-            return result-1
+        while True:
+            menu.clean()
+            print(f"Match n°{match_number} du round{round_number} :")
+            print()
+            print ("Joueur n°1 :", tournament_data[round_name][match_number][0][0])
+            print ("VS")
+            print ("Joueur n°2 :", tournament_data[round_name][match_number][1][0])
+            try:
+                result = int(input("Taper le numéro du gagnant ou 0 en cas de match nul : "))
+            except ValueError:
+                print("Veuillez taper un nombre")
+                time.sleep(2)
+                print()
+            else:
+                if result == 0:
+                    return None
+                else:
+                    return result-1
     

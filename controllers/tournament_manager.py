@@ -29,8 +29,6 @@ class TournamentManager:
         self.message.messages_tournament(tournament_data["tournament_name"], 1)
         if self.prompt_for_datas.prompt_for_list_match_round1() :
             self.pair_generation(tournoi.tournament_data)
-        #else:
-            #self.menu_manager.choice_main_menu()
   
     def get_and_save_results(self, tournament_data):
         n=0
@@ -88,45 +86,14 @@ class TournamentManager:
 
 
     def pair_generation(self, tournament_data) :
-        if tournament_data["round_numbers"]>1 :
-            n=0
-            for i in range(1, tournament_data["round_numbers"]+1):
-                print("tournament_data:", tournament_data)
-                round_name = "round_"+str(i)+"_results"
-                print("round_name:", round_name)
-                # vérifie si le round n'a pas été généré avant et que les résultats du tour précédent ont déjà été saisis
-                if i >1 and round_name not in tournament_data: 
-                    print("i:",i)       
-                    last_round_name = "round_"+str(i-1)+"_results"
-                    print("last_round_name:", last_round_name)
-                    if tournament_data[last_round_name][0][1] == 1:
-                        round_number = i
-                        break
-                    else:
-                        self.message.messages_round(i, 2)
-                        return True
-                        
-                elif i == 1 and round_name not in tournament_data:
-                    round_number = i
-                    break
+        for i in range(1, tournament_data["round_numbers"]+1):
+            round_name = "round_"+str(i)+"_results"
+            if round_name not in tournament_data :
+                round_number = i
+                return self.save_list_matches(tournament_data, round_number)
+        return self.message.messages_tournament(tournament_data["tournament_name"], 2)
                 
-                else :
-                    n+=1
-                if n == tournament_data["round_numbers"]:
-                    self.message.messages_round(i, 4)
-                    return True
-            round = Round(tournament_data, round_number)
-            tournament_name = tournament_data["tournament_name"]
-            if round_number == 1:
-                self.save_list_matches(tournament_data, 1)  
-               
-            else:
-                self.save_list_matches(tournament_data, round_number)            
-                
-        else:
-            self.save_list_matches(tournament_data, 1)  
             
-
 
     def save_list_matches(self, tournament_data, round_number):
         round = Round(tournament_data, round_number)

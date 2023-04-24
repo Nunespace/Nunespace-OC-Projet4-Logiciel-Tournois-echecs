@@ -29,7 +29,7 @@ class MenuManager:
             exit()
 
     def choice_menu_tournament(self):
-        self.menu.clean()
+        #self.menu.clean()
         option = self.menu.tournament_menu()
         if option == 1:
             self.tournament_manager.get_data_tournament()
@@ -62,7 +62,6 @@ class MenuManager:
             list_tournaments = self.user_manager.report_generation_list_tournaments()
             self.messages.report_tournaments(list_tournaments)
             self.choice_menu_reports()
-
         elif option == 3:
             tournament_data = self.menu.choice_tournaments()
             with open('tournaments_data.json') as file:
@@ -83,8 +82,13 @@ class MenuManager:
             self.messages.report_list_players_tournament(tournament)
             self.choice_submenu_report_tournament(tournament)
         elif option == 2:
-            self.messages.report_rounds_results_tournament(tournament)
-            self.choice_submenu_report_tournament(tournament)
+            try:
+                self.messages.report_rounds_results_tournament(tournament)
+            except KeyError:
+                self.messages.report_messages(1)
+                self.choice_menu_tournament()
+            else:
+                self.choice_submenu_report_tournament(tournament)
         elif option == 3:
             self.menu.clean()
             self.choice_main_menu()

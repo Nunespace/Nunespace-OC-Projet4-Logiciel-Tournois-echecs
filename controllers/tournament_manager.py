@@ -24,6 +24,16 @@ class TournamentManager:
         tournament_data["players_list"] = list_players
         dict_total_points = {}.fromkeys(tournament_data["players_list"], 0)
         tournament_data.update([("total_points",dict_total_points)])
+        #initialisation de la matrice des matchs
+        players_numbers = len(tournament_data["players_list"])
+        matrix_matches = [[0]*players_numbers for i in range(players_numbers)]
+        for ligne in range(players_numbers):
+            for colonne in range(players_numbers):
+                # Dans la matrice, quand le joueur est face à lui-même, H est indiqué (comme himself)
+                if ligne == colonne:
+                    matrix_matches[ligne][colonne] = "H"
+                    matrix_matches[colonne][ligne] = "H"
+        tournament_data.update([("matrix_matches",matrix_matches)])
         tournoi = Tournament(tournament_data)
         tournoi.saveData_tournament()
         self.message.messages_tournament(tournament_data["tournament_name"], 1)
@@ -67,12 +77,12 @@ class TournamentManager:
                 tournament["total_points"] = tournament_data["total_points"]
                 tournament[round_name] = tournament_data[round_name]
         # vérifie si le dernier match a été complété : si oui,  le dictionnaire du tournoi est sauvegardé dans le fichier json et retrourne True. Si non, sauvegarde le dictionnaire
-        ultimate_match = tournament_data[round_name][-2]
+        ultimate_match = tournament_data[round_name][-3]
         #print(ultimate_match)
         if ultimate_match[0][1] != "" :
             tournament_data[round_name][0][1] = 1
             tour_end = datetime.datetime.today().strftime('%Y-%m-%d')
-            tournament_data[round_name].insert(len(tournament_data[round_name]), ["tour_end : ", tour_end])
+            tournament_data[round_name][len(tournament_data[round_name])-1][1] = tour_end
             self.message.messages_round(round_number, 3)
             self.saveData(tournaments_data)
             return True
@@ -100,7 +110,13 @@ class TournamentManager:
         if round_number == 1:
               list_matches =  round.matchesRound1()
         else : 
-              list_matches = round.matchesRoundNext()
+            last_round_name = "round_"+str(round_number-1)+"_results"
+            if tournament_data[last_round_name][0][1] == 1:
+                list_matches = round.matches_round_next_based_on_points()
+            else:
+                return self.message.messages_round(round_number, 2)  
+        matrix_matches = round.matrix_matches(list_matches)
+        print("eee", matrix_matches)
         tournaments_data=self.load_data()
         round_name = "round_"+str(round_number)+"_results"
         round_results = []
@@ -110,12 +126,14 @@ class TournamentManager:
         round_results.insert(0, ["Results entered", 0])
         tour_start = datetime.datetime.today().strftime('%Y-%m-%d')
         round_results.insert(len(round_results), ["tour_start : ", tour_start])
+        round_results.insert(len(round_results), ["tour_end : ", "En attente des resultats"])
         #print ("nom du tournoi en cours :", tournament_data_dict["tournament_name"])
         for tournament in tournaments_data:
             #print("nom tournoi ds tournois:", tournament["tournament_name"])
             if tournament["tournament_name"] == tournament_data["tournament_name"]:
                 #print("round name:", round_name, "round results :", round_results)
                 tournament.update([(round_name, round_results)])
+                tournament["matrix_matches"]=matrix_matches
         show_matches =  Messages()
         show_matches.show_list_matches(round_number, list_matches)
         self.saveData(tournaments_data)

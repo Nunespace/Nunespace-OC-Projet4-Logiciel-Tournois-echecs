@@ -100,3 +100,21 @@ $ python main.py
 
 
 [^1]: selon la version de Python installée sur votre PC.
+
+
+
+## Génération d'un nouveau fichier flake8-html.  
+
+1. Installer Flake8 
+
+```
+$ pip install flake8-html
+```
+
+2. Exécuter Flake8 
+
+```
+$ flake8 --format=html --htmldir=flake-report
+```
+
+Le rapport *flake-report* est enregistré automatiquement dans le répertoire du projet.

@@ -40,7 +40,7 @@ class Messages:
         """
         Affiche la liste des matchs après la génération des paires d'un round
         """
-        print(f"les matchs du round n°{round_number} sont les suivants :")
+        print(f"Les matchs du round n°{round_number} sont les suivants :")
         for i, players in enumerate(list_matches):
             print("Match n°", i + 1, ":", players[0], "vs", players[1])
 

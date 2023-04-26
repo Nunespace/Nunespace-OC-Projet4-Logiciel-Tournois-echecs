@@ -1,3 +1,4 @@
+import time
 import random
 from .tournament import Tournament
 
@@ -95,10 +96,12 @@ class Round(Tournament):
         list_matches_numbers_ok = []
         # la liste des matchs est vidée avant chaque remaniement jusqu'à
         # ce qu'une combinaison de paires corresponde à des matchs non joués
-        while len(list_matches_numbers_ok) != total_round_matches:
+        counter = 0
+        while len(list_matches_numbers_ok) != total_round_matches and counter != 100000:
             list_matches_numbers_ok = []
             # la liste est mélangée
             random.shuffle(list_to_shuffle)
+            counter += 1
             n = 0
             list_matches_numbers = []
             # à partir de la liste mélangée, création d'une liste de paires
@@ -114,6 +117,16 @@ class Round(Tournament):
                 player2 = match[1]
                 if matrix_matches[player1][player2] == 0:
                     list_matches_numbers_ok.append(match)
+        #  S'il est impossible de générer des matchs non identiques la méthode
+        # matches_round_next_based_on_points_except_check() est activée
+        if counter == 100000:
+            list_matches = self.matches_round_next_based_on_points_except_check()
+            print(
+                "Pour ce tour, il n'est pas possible de générer des paires non identiques."
+            )
+            time.sleep(2)
+            print()
+            return list_matches
         # à partir de la liste précédente, création de la liste des matchs
         #  du round (list_matches) avec le nom et prénom des joueurs
         players_number = self.number_allocation_to_players()
@@ -125,6 +138,28 @@ class Round(Tournament):
                 if pair[1] == number[0]:
                     player2 = number[1]
             list_matches.append((player1, player2))
+        return list_matches
+
+    def matches_round_next_based_on_points_except_check(self):
+        """
+        Cette méthode est utilisée s'il s'avère impossible de générer des paires sans créer des matchs identiques.
+        Dans ce cas, la liste des matchs est générée selon le total des points de chaque joueur
+        sans la méthode check_match
+        """
+        list_matches = []
+        total_points_sorted = sorted(
+            self.tournament_data["total_points"].items(), key=lambda t: t[1]
+        )
+        player1 = 0
+        player2 = 1
+
+        while len(total_points_sorted) > 0:
+            match = (total_points_sorted[player1][0], total_points_sorted[player2][0])
+            list_matches.append(match)
+            del total_points_sorted[player1]
+            del total_points_sorted[player2 - 1]
+            player1 = 0
+            player2 = 1
         return list_matches
 
     def pair_check(self, match):

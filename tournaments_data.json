@@ -1,0 +1,476 @@
+[
+ {
+  "tournament_name": "1er Tournoi",
+  "place": "Paris",
+  "starting_date": "22/03/2023",
+  "end_date": "23/03/2023",
+  "round_numbers": 5,
+  "players_list": [
+   "CAZENAVE Mathieu",
+   "GANDRIAU Paul",
+   "GUINIER Jacques",
+   "BONBON Rose",
+   "DURAND Martine",
+   "DUPONT Alexandre",
+   "PEREZ Juan",
+   "POIRIER Anne-sophie",
+   "PLANTOIS Claude",
+   "GRIGNAN Albert"
+  ],
+  "description": "The first!",
+  "total_points": {
+   "CAZENAVE Mathieu": 1.5,
+   "GANDRIAU Paul": 2,
+   "GUINIER Jacques": 2,
+   "BONBON Rose": 3,
+   "DURAND Martine": 4,
+   "DUPONT Alexandre": 3.0,
+   "PEREZ Juan": 2,
+   "POIRIER Anne-sophie": 2,
+   "PLANTOIS Claude": 3.0,
+   "GRIGNAN Albert": 2.5
+  },
+  "matrix_matches": [
+   [
+    "H",
+    1,
+    1,
+    1,
+    0,
+    0,
+    1,
+    0,
+    0,
+    1
+   ],
+   [
+    1,
+    "H",
+    0,
+    0,
+    1,
+    1,
+    1,
+    1,
+    0,
+    0
+   ],
+   [
+    1,
+    0,
+    "H",
+    1,
+    0,
+    1,
+    1,
+    1,
+    0,
+    0
+   ],
+   [
+    1,
+    0,
+    1,
+    "H",
+    1,
+    0,
+    1,
+    0,
+    1,
+    0
+   ],
+   [
+    0,
+    1,
+    0,
+    1,
+    "H",
+    1,
+    0,
+    0,
+    1,
+    1
+   ],
+   [
+    0,
+    1,
+    1,
+    0,
+    1,
+    "H",
+    0,
+    0,
+    1,
+    1
+   ],
+   [
+    1,
+    1,
+    1,
+    1,
+    0,
+    0,
+    "H",
+    1,
+    0,
+    0
+   ],
+   [
+    0,
+    1,
+    1,
+    0,
+    0,
+    0,
+    1,
+    "H",
+    1,
+    1
+   ],
+   [
+    0,
+    0,
+    0,
+    1,
+    1,
+    1,
+    0,
+    1,
+    "H",
+    1
+   ],
+   [
+    1,
+    0,
+    0,
+    0,
+    1,
+    1,
+    0,
+    1,
+    1,
+    "H"
+   ]
+  ],
+  "round_1_results": [
+   [
+    "Results entered",
+    1
+   ],
+   [
+    [
+     "GUINIER Jacques",
+     1
+    ],
+    [
+     "CAZENAVE Mathieu",
+     0
+    ]
+   ],
+   [
+    [
+     "PEREZ Juan",
+     0
+    ],
+    [
+     "BONBON Rose",
+     1
+    ]
+   ],
+   [
+    [
+     "GRIGNAN Albert",
+     1
+    ],
+    [
+     "POIRIER Anne-sophie",
+     0
+    ]
+   ],
+   [
+    [
+     "DURAND Martine",
+     1
+    ],
+    [
+     "GANDRIAU Paul",
+     0
+    ]
+   ],
+   [
+    [
+     "DUPONT Alexandre",
+     0.5
+    ],
+    [
+     "PLANTOIS Claude",
+     0.5
+    ]
+   ],
+   [
+    "tour_start : ",
+    "2023-04-26"
+   ],
+   [
+    "tour_end : ",
+    "2023-04-26"
+   ]
+  ],
+  "round_2_results": [
+   [
+    "Results entered",
+    1
+   ],
+   [
+    [
+     "CAZENAVE Mathieu",
+     1
+    ],
+    [
+     "GANDRIAU Paul",
+     0
+    ]
+   ],
+   [
+    [
+     "PEREZ Juan",
+     0
+    ],
+    [
+     "POIRIER Anne-sophie",
+     1
+    ]
+   ],
+   [
+    [
+     "DUPONT Alexandre",
+     1
+    ],
+    [
+     "GUINIER Jacques",
+     0
+    ]
+   ],
+   [
+    [
+     "PLANTOIS Claude",
+     1
+    ],
+    [
+     "BONBON Rose",
+     0
+    ]
+   ],
+   [
+    [
+     "DURAND Martine",
+     1
+    ],
+    [
+     "GRIGNAN Albert",
+     0
+    ]
+   ],
+   [
+    "tour_start : ",
+    "2023-04-26"
+   ],
+   [
+    "tour_end : ",
+    "2023-04-26"
+   ]
+  ],
+  "round_3_results": [
+   [
+    "Results entered",
+    1
+   ],
+   [
+    [
+     "GANDRIAU Paul",
+     1
+    ],
+    [
+     "PEREZ Juan",
+     0
+    ]
+   ],
+   [
+    [
+     "CAZENAVE Mathieu",
+     0
+    ],
+    [
+     "BONBON Rose",
+     1
+    ]
+   ],
+   [
+    [
+     "GUINIER Jacques",
+     1
+    ],
+    [
+     "POIRIER Anne-sophie",
+     0
+    ]
+   ],
+   [
+    [
+     "GRIGNAN Albert",
+     0.5
+    ],
+    [
+     "DUPONT Alexandre",
+     0.5
+    ]
+   ],
+   [
+    [
+     "PLANTOIS Claude",
+     0
+    ],
+    [
+     "DURAND Martine",
+     1
+    ]
+   ],
+   [
+    "tour_start : ",
+    "2023-04-26"
+   ],
+   [
+    "tour_end : ",
+    "2023-04-26"
+   ]
+  ],
+  "round_4_results": [
+   [
+    "Results entered",
+    1
+   ],
+   [
+    [
+     "PEREZ Juan",
+     1
+    ],
+    [
+     "CAZENAVE Mathieu",
+     0
+    ]
+   ],
+   [
+    [
+     "GANDRIAU Paul",
+     0
+    ],
+    [
+     "POIRIER Anne-sophie",
+     1
+    ]
+   ],
+   [
+    [
+     "PLANTOIS Claude",
+     0.5
+    ],
+    [
+     "GRIGNAN Albert",
+     0.5
+    ]
+   ],
+   [
+    [
+     "GUINIER Jacques",
+     0
+    ],
+    [
+     "BONBON Rose",
+     1
+    ]
+   ],
+   [
+    [
+     "DUPONT Alexandre",
+     1
+    ],
+    [
+     "DURAND Martine",
+     0
+    ]
+   ],
+   [
+    "tour_start : ",
+    "2023-04-26"
+   ],
+   [
+    "tour_end : ",
+    "2023-04-26"
+   ]
+  ],
+  "round_5_results": [
+   [
+    "Results entered",
+    1
+   ],
+   [
+    [
+     "PLANTOIS Claude",
+     1
+    ],
+    [
+     "POIRIER Anne-sophie",
+     0
+    ]
+   ],
+   [
+    [
+     "BONBON Rose",
+     0
+    ],
+    [
+     "DURAND Martine",
+     1
+    ]
+   ],
+   [
+    [
+     "PEREZ Juan",
+     1
+    ],
+    [
+     "GUINIER Jacques",
+     0
+    ]
+   ],
+   [
+    [
+     "CAZENAVE Mathieu",
+     0.5
+    ],
+    [
+     "GRIGNAN Albert",
+     0.5
+    ]
+   ],
+   [
+    [
+     "DUPONT Alexandre",
+     0
+    ],
+    [
+     "GANDRIAU Paul",
+     1
+    ]
+   ],
+   [
+    "tour_start : ",
+    "2023-04-26"
+   ],
+   [
+    "tour_end : ",
+    "2023-04-26"
+   ]
+  ]
+ }
+]

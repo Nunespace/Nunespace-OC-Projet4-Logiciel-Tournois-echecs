@@ -23,7 +23,7 @@ class Messages:
             print()
         if message_number == 4:
             print()
-            print(f"Les résultats de tous les tours de ce tournoi ont déjà été saisis.")
+            print("Les résultats de tous les tours de ce tournoi ont déjà été saisis.")
         if message_number == 5:
             print(
                 f"Vous devez générer les paires du tour n°{round_number} avant de saisir ses résultats."

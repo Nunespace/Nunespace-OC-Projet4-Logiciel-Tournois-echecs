@@ -36,7 +36,8 @@ class PromptForDatas:
                         n += 1
                     else:
                         print(
-                            "Cet identifiant n'est pas enregistré dans le fichier des joueurs. Veuillez taper un autre identifiant."
+                            "Cet identifiant n'est pas enregistré dans le fichier des joueurs."
+                            "Veuillez taper un autre identifiant."
                         )
             return login_list
 
@@ -107,7 +108,9 @@ class PromptForDatas:
         tournament_data_dict["end_date"] = input("date de fin (JJ/MM/ANNEE):")
         tournament_data_dict["players_list"] = self.prompt_for_players(players_data)
         tournament_data_dict["description"] = input(
-            f"Veuillez taper une description pour les remarques générales du directeur du tournoi {tournament_data_dict['tournament_name']} : "
+            "Veuillez taper une description pour les remarques générales du directeur du tournoi ",
+            tournament_data_dict["tournament_name"],
+            " : ",
         )
         round_numbers_yes_no = input(
             "Voulez-vous définir le nombre de tours (attention : ce nombre doit être inférieur au nombre de joueurs) : O/N?"

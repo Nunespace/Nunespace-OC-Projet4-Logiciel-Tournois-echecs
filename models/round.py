@@ -143,7 +143,7 @@ class Round(Tournament):
 
     def matrix_matches(self, list_matches):
         """
-        Attribution d'un numéro à chaque joueur 
+        Attribution d'un numéro à chaque joueur
         (de 0 au nombre total de joueur -1)
         """
         matrix = self.tournament_data["matrix_matches"]

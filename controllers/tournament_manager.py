@@ -17,7 +17,7 @@ class TournamentManager:
     def get_data_tournament(self):
         """
         Traitement des input de l'utilisateur concernant
-        la création d'un tournoi : crée un dictionnaire 
+        la création d'un tournoi : crée un dictionnaire
         et le sauvegarde dans le fichier json tournaments_data.json
         """
         players = Players()
@@ -53,7 +53,7 @@ class TournamentManager:
         et le sauvegarde dans le fichier json tournaments_data.json
         """
         n = 0
-        # 1ère boucle pour vérifier si les résultats des matchs de chaque tour 
+        # 1ère boucle pour vérifier si les résultats des matchs de chaque tour
         # ont été saisis : s'arrête si non et donne le n°(i) du round à saisir
         for i in range(1, tournament_data["round_numbers"] + 1):
             round_name = "round_" + str(i) + "_results"
@@ -63,7 +63,8 @@ class TournamentManager:
                     break
                 else:
                     n += 1
-            # si les résultats du tour précédent ont été saisis et si le tour n'est pas enregistré, l'utilisateur est invité à le générer
+            # si les résultats du tour précédent ont été saisis et si le tour n'est pas enregistré,
+            # l'utilisateur est invité à le générer
             else:
                 round_number = i
                 self.message.messages_round(round_number, 5)
@@ -92,7 +93,7 @@ class TournamentManager:
             if tournament["tournament_name"] == tournament_data["tournament_name"]:
                 tournament["total_points"] = tournament_data["total_points"]
                 tournament[round_name] = tournament_data[round_name]
-        # vérifie si le dernier match a été complété : si oui,  
+        # vérifie si le dernier match a été complété : si oui,
         # le dictionnaire du tournoi est sauvegardé dans le fichier json
         #  et retrourne True. Si non, sauvegarde le dictionnaire
         ultimate_match = tournament_data[round_name][-3]

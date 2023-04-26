@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html>
+   <head>
+      <title>flake8 violations: views\datas.py</title>
+      <meta http-equiv="Content-Type" value="text/html; charset=UTF-8">
+      <link rel="stylesheet" href="styles.css">
+<script>
+function bindHandler(link) {
+   var code = link.getAttribute('data-code');
+   var key = location.pathname + '#' + code;
+
+   var ul = link.parentNode.querySelector('.details');
+   if (sessionStorage[key] != 'open') {
+      ul.style.display = 'none';
+   }
+   link.addEventListener('click', function (event) {
+      if (!ul.style.display || ul.style.display == 'none') {
+         ul.style.display = 'block';
+         sessionStorage[key] = 'open';
+      } else {
+         ul.style.display = 'none';
+         sessionStorage[key] = 'closed';
+      }
+   });
+}
+
+window.addEventListener('DOMContentLoaded', function () {
+   var links = document.querySelectorAll('#index > li > a');
+   for (var i = 0; i < links.length; i++) {
+      bindHandler(links[i]);
+   }
+});
+</script>
+   </head>
+   <body>
+      <div id="masthead" class="sev-2"></div>
+      <div id="page">
+         <p id="srclink">
+            <a title="View full annotated source"
+               href="views.datas.source.html">
+               <img src="file.svg" alt="&#x2261;">
+            </a></p>
+         <h1>
+            <a href="index.html">
+               <img src="back.svg" alt="&#x2B05;">
+               views\datas.py
+            </a>
+         </h1>
+
+         <ul id="index">
+         
+         <li>
+            <a data-code="E501">
+               <span class="count sev-2">
+                  16
+               </span>
+               <strong>E501:</strong> line too long (107 > 79 characters)
+               
+                  (and 13 similar)
+               
+            </a>
+            <ul class="details">
+            <li>
+               
+               <p>Line too long (107 > 79 characters):</p>
+               
+               <a href="views.datas.source.html#l32">
+                  <tt><i>32</i>                             <span class="s2">&quot;Ce joueur est déjà inscrit à ce tournoi. Veuillez taper un autre identifiant.&quot;</span></tt>
+               </a>
+            </li><li>
+               
+               <p>Line too long (95 > 79 characters):</p>
+               
+               <a href="views.datas.source.html#l39">
+                  <tt><i>39</i>                             <span class="s2">&quot;Cet identifiant n&#39;est pas enregistré dans le fichier des joueurs.&quot;</span></tt>
+               </a>
+            </li><li>
+               
+               <p>Line too long (80 > 79 characters):</p>
+               
+               <a href="views.datas.source.html#l76">
+                  <tt><i>76</i>             <span class="n">dict_player</span><span class="p">[</span><span class="s2">&quot;birthdate&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s2">&quot;Date de naissance (JJ/MM/ANNEE):&quot;</span><span class="p">)</span></tt>
+               </a>
+            </li><li>
+               
+               <p>Line too long (85 > 79 characters):</p>
+               
+               <a href="views.datas.source.html#l107">
+                  <tt><i>107</i>         <span class="n">tournament_data_dict</span><span class="p">[</span><span class="s2">&quot;starting_date&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s2">&quot;date de début (JJ/MM/ANNEE):&quot;</span><span class="p">)</span></tt>
+               </a>
+            </li><li>
+               
+               <p>Line too long (84 > 79 characters):</p>
+               
+               <a href="views.datas.source.html#l109">
+                  <tt><i>109</i>         <span class="n">tournament_data_dict</span><span class="p">[</span><span class="s2">&quot;players_list&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">prompt_for_players</span><span class="p">(</span><span class="n">players_data</span><span class="p">)</span></tt>
+               </a>
+            </li><li>
+               
+               <p>Line too long (100 > 79 characters):</p>
+               
+               <a href="views.datas.source.html#l111">
+                  <tt><i>111</i>             <span class="s2">&quot;Veuillez taper une description pour les remarques générales du directeur du tournoi : &quot;</span></tt>
+               </a>
+            </li><li>
+               
+               <p>Line too long (117 > 79 characters):</p>
+               
+               <a href="views.datas.source.html#l114">
+                  <tt><i>114</i>             <span class="s2">&quot;Voulez-vous définir le nombre de tours (attention : ce nombre doit être inférieur au nombre de joueurs)&quot;</span></tt>
+               </a>
+            </li><li>
+               
+               <p>Line too long (106 > 79 characters):</p>
+               
+               <a href="views.datas.source.html#l127">
+                  <tt><i>127</i>                     <span class="s2">&quot;Le nombre de joueurs doit être supérieur au nombre de tours  (par défaut : 4 tours).&quot;</span></tt>
+               </a>
+            </li><li>
+               
+               <p>Line too long (103 > 79 characters):</p>
+               
+               <a href="views.datas.source.html#l131">
+                  <tt><i>131</i>                         <span class="s2">&quot;Veuillez saisir un nombre de round supérieur au nombre de joueurs inscrits : &quot;</span></tt>
+               </a>
+            </li><li>
+               
+               <p>Line too long (84 > 79 characters):</p>
+               
+               <a href="views.datas.source.html#l136">
+                  <tt><i>136</i>             <span class="n">tournament_data_dict</span><span class="p">[</span><span class="s2">&quot;round_numbers&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s2">&quot;nombre de tours : &quot;</span><span class="p">))</span></tt>
+               </a>
+            </li><li>
+               
+               <p>Line too long (92 > 79 characters):</p>
+               
+               <a href="views.datas.source.html#l141">
+                  <tt><i>141</i>                     <span class="s2">&quot;Ce nombre de tour n&#39;est pas inférieur au nombre de joueurs inscrits...&quot;</span></tt>
+               </a>
+            </li><li>
+               
+               <p>Line too long (88 > 79 characters):</p>
+               
+               <a href="views.datas.source.html#l143">
+                  <tt><i>143</i>                 <span class="n">tournament_data_dict</span><span class="p">[</span><span class="s2">&quot;round_numbers&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s2">&quot;nombre de tours : &quot;</span><span class="p">))</span></tt>
+               </a>
+            </li><li>
+               
+               <p>Line too long (82 > 79 characters):</p>
+               
+               <a href="views.datas.source.html#l169">
+                  <tt><i>169</i>             <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Joueur n°1 :&quot;</span><span class="p">,</span> <span class="n">tournament_data</span><span class="p">[</span><span class="n">round_name</span><span class="p">][</span><span class="n">match_number</span><span class="p">][</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">])</span></tt>
+               </a>
+            </li><li>
+               
+               <p>Line too long (82 > 79 characters):</p>
+               
+               <a href="views.datas.source.html#l171">
+                  <tt><i>171</i>             <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Joueur n°2 :&quot;</span><span class="p">,</span> <span class="n">tournament_data</span><span class="p">[</span><span class="n">round_name</span><span class="p">][</span><span class="n">match_number</span><span class="p">][</span><span class="mi">1</span><span class="p">][</span><span class="mi">0</span><span class="p">])</span></tt>
+               </a>
+            </li><li>
+               
+               <p>Line too long (83 > 79 characters):</p>
+               
+               <a href="views.datas.source.html#l175">
+                  <tt><i>175</i>                     <span class="nb">input</span><span class="p">(</span><span class="s2">&quot;Taper le numéro du gagnant ou 0 en cas de match nul : &quot;</span><span class="p">)</span></tt>
+               </a>
+            </li><li>
+               
+               <p>Line too long (90 > 79 characters):</p>
+               
+               <a href="views.datas.source.html#l184">
+                  <tt><i>184</i>                         <span class="s2">&quot;Veuillez taper le n°du gagnant (1 ou 2) ou 0 en cas de match nul&quot;</span></tt>
+               </a>
+            </li>
+            </ul>
+         </li>
+         
+         </ul>
+      </div>
+   </body>
+</html>

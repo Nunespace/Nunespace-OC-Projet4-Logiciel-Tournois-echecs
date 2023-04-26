@@ -108,12 +108,11 @@ class PromptForDatas:
         tournament_data_dict["end_date"] = input("date de fin (JJ/MM/ANNEE):")
         tournament_data_dict["players_list"] = self.prompt_for_players(players_data)
         tournament_data_dict["description"] = input(
-            "Veuillez taper une description pour les remarques générales du directeur du tournoi ",
-            tournament_data_dict["tournament_name"],
-            " : ",
+            "Veuillez taper une description pour les remarques générales du directeur du tournoi : "
         )
         round_numbers_yes_no = input(
-            "Voulez-vous définir le nombre de tours (attention : ce nombre doit être inférieur au nombre de joueurs) : O/N?"
+            "Voulez-vous définir le nombre de tours (attention : ce nombre doit être inférieur au nombre de joueurs)"
+            ": O/N?"
         )
         print("choix :", round_numbers_yes_no)
         if round_numbers_yes_no == "n" or round_numbers_yes_no == "N":

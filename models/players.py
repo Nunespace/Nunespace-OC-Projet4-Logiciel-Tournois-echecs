@@ -21,16 +21,6 @@ class Players:
             with open("players_data.json", "w", encoding="utf-8") as f_out:
                 json.dump([dict_player], f_out, indent=1)
 
-    """
-    def list_players_first_name_name(self):
-        players_data = self.players_data
-        list_players = []
-        for player in players_data:
-            list_players.append(player["first_name"] + " "+ player["name"])
-        list_players.sort()
-        return list_players
-    """
-
     def list_players_from_login(self, list_login):
         players_data = self.players_data
         list_players_registered = []

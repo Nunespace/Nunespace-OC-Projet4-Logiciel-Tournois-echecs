@@ -105,7 +105,7 @@ $ python main.py
 
 ## Génération d'un nouveau fichier flake8-html.  
 
-1. Installer Flake8 
+1. Installer Flake8-html 
 
 ```
 $ pip install flake8-html
